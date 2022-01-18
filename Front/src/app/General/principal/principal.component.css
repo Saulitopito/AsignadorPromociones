@@ -1,0 +1,38 @@
+.alineacion-imagen{
+    margin-left: 2%; 
+    margin-right: 2%; 
+    margin-top: 1%; 
+    margin-bottom: 1%;
+}
+.alineacion-texto{
+    margin-top: 5%;
+}
+
+.alineacion-contenedor{
+    margin-left: 20%; 
+    margin-right: 20%; 
+    margin-top: 4%;
+}
+
+img{
+    width: 15em;
+    height: 12em;
+}
+
+.all{
+    min-height: 67vh;
+}
+
+a{
+    color:#FFFFFF;
+}
+a:visited{
+    color:#FFFFFF;
+}
+a:hover{
+    color:#FFFFFF;
+    text-decoration: none;
+}
+a:active{
+    color:#FFFFFF;
+}

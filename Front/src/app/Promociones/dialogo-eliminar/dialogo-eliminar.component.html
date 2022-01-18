@@ -1,0 +1,9 @@
+<!-- Mensaje emergente que pide confirmar eliminación de la promoción -->
+<h2 mat-dialog-title class="text-center">Confirmar eliminación</h2>
+<mat-dialog-content>¿Está seguro que desea eliminar esta promoción?</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="center">
+        <button mat-raised-button color="primary" mat-dialog-close mat-dialog-close="true" (click)="eliminarPromocion()">Sí</button>
+        <button mat-raised-button color="accent" mat-dialog-close mat-dialog-close="false">No</button>
+    </div>
+</mat-dialog-actions>

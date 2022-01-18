@@ -1,0 +1,54 @@
+<div class="mat-title text-center text-col">Modificación de Promociones</div>
+<!-- Fromulario que usa material, para actualizar -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="margen-izq">
+        <mat-label>NOMBRE</mat-label>
+        <input matInput type="text" formControlName="promoNombre" [(ngModel)]="nombre" required>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>CIUDADES</mat-label>
+        <mat-select [ngModel]="ciudadesSeleccionadas" (ngModelChange)="ciudadesSeleccionadas= $event" multiple formControlName="promoCiudades" required>
+            <mat-option *ngFor="let ciudad of ciudades" value={{ciudad.nombreDTO}}>{{ciudad.nombreDTO}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>FECHA DE INICIO DE VIGENCIA (DD/MM/AAAA)</mat-label>
+        <input matInput type="date" formControlName="promoFechaInicio" [ngModel]="fecha_inicio | date: 'yyyy-MM-dd'" (ngModelChange)="fecha_inicio= $event" required>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>ACTIVIDADES ECONÓMICAS</mat-label>
+        <mat-select [ngModel]="actividadesSeleccionadas" (ngModelChange)="actividadesSeleccionadas = $event" multiple formControlName="promoActividades" required>
+            <mat-option *ngFor="let act of actividades" value={{act.nombreDTO}}>{{act.nombreDTO}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>FECHAS DE FIN DE VIGENCIA (DD/MM/AAAA)</mat-label>
+        <input matInput type="date" formControlName="promoFechaFin" [ngModel]="fecha_fin | date: 'yyyy-MM-dd'" (ngModelChange)="fecha_fin= $event" required>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>PLANES COMERCIALES</mat-label>
+        <mat-select [ngModel]="planesSeleccionados" (ngModelChange)="planesSeleccionados =$event" multiple formControlName="promoPlanes" required>
+            <mat-option *ngFor="let plan of planes" value={{plan.nombreDTO}}>{{plan.nombreDTO}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>DESCUENTO (%)</mat-label>
+        <input matInput type="number" formControlName="promoDescuento" [(ngModel)]="descuento" required>
+    </mat-form-field>
+    <mat-form-field class="margen-izq">
+        <mat-label>CALIFICACIONES</mat-label>
+        <mat-select [ngModel]="calificacionesSeleccionadas" (ngModelChange)="calificacionesSeleccionadas =$event" multiple formControlName="promoCalificaciones" required>
+            <mat-option *ngFor="let cal of calificaciones" value={{cal.nombreDTO}}>{{cal.nombreDTO}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="ancho">
+        <mat-form-field class="margen-izq">
+            <mat-label>PROMEDIO MÍNIMO REQUERIDO ($)</mat-label>
+            <input #sliderVal matInput type="number" formControlName="promoMinVal" [ngModel]="promedio" (ngModelChange)="promedio =$event" required>
+        </mat-form-field>
+        <mat-slider #slider class="margen-izq" min="0" max="100000" step="500" [value]="sliderVal.value" (input)="cambio($event)" ></mat-slider>
+    </div>
+    <div class="center">
+        <button [disabled]="!form.valid" mat-raised-button color="primary">Modificar Promoción</button>
+    </div>
+</form>

@@ -1,0 +1,3 @@
+GRANT CREATE SESSION TO saul_proyecto;
+GRANT ALL PRIVILEGES TO saul_proyecto;
+ALTER SESSION SET CURRENT_SCHEMA = saul_proyecto;

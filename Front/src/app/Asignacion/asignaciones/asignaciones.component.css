@@ -1,0 +1,22 @@
+.text-col{
+    color: #434750;
+    margin-bottom: 2%;
+}
+
+.vertical{
+    vertical-align: middle;
+}
+
+.center{
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.spinner{
+    margin: 0 auto;
+}
+
+.all{
+    min-height: 76vh;
+}

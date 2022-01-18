@@ -1,0 +1,35 @@
+.text-col{
+    margin-top: 2%;
+    color: #434750;
+}
+
+.centro{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical{
+    vertical-align: middle;
+    text-align: center;
+    
+}
+
+.separacion{
+    margin: 3%;
+}
+
+#ele{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.all{
+    min-height: 76vh;
+}
+
+.margen{
+    margin-left: 3%;
+    margin-top: 2%;
+}

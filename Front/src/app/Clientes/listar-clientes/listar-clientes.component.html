@@ -1,0 +1,38 @@
+<div class="container borde-sup">
+    <div class="card">
+        <h3 class="text-center borde-sup">Listado de usuarios</h3>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead class="text-center">
+                    <th class="align-middle">ID</th>
+                    <th class="align-middle">Nombre</th>
+                    <th class="align-middle">Dirección</th>
+                    <th class="align-middle">Teléfono</th>
+                    <th class="align-middle">¿Presenta mora?</th>
+                    <th class="align-middle">Promedio de pagos</th>
+                    <th class="align-middle">Producto</th>
+                    <th class="align-middle">Ciudad</th>
+                    <th class="align-middle">Plan Comercial</th>
+                    <th class="align-middle">Actividad Económica</th>
+                    <th class="align-middle">Calificación</th>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let cliente of clientes">
+                        <td>{{cliente.idDTO}}</td>
+                        <td>{{cliente.nombreDTO}}</td>
+                        <td>{{cliente.direccionDTO}}</td>
+                        <td>{{cliente.telefonoDTO}}</td>
+                        <td>{{cliente.moraDTO}}</td>
+                        <td>{{cliente.promedioDTO | currency }}</td>
+                        <td>{{cliente.productoDTO.nombreDTO}}</td>
+                        <td>{{cliente.ciudadDTO.nombreDTO}}</td>
+                        <td>{{cliente.planDTO.nombreDTO}}</td>
+                        <td>{{cliente.actividadDTO.nombreDTO}}</td>
+                        <td>{{cliente.calificacionDTO.nombreDTO}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<button (click)="crearCliente()">Agregar Cliente</button>

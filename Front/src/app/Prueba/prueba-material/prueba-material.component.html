@@ -1,0 +1,407 @@
+<button mat-raised-button color="primary">Hello World</button>
+
+<div class="mat-display-4">Display 4</div>
+<div class="mat-display-3">Display 3</div>
+<div class="mat-display-2">Display 2</div>
+<div class="mat-display-1">Display 1</div>
+
+<div class="mat-headline">Heading para h1</div>
+<div class="mat-title">Heading para h2</div>
+<div class="mat-subheading-2">Heading para h3</div>
+<div class="mat-subheading-1">Heading para h4</div>
+
+<div class="mat-body-1">Texto del body</div>
+<div class="mat-body-2">Texto del body en negrita</div>
+<div class="mat-caption">Texto caption</div>
+
+<div class="mat-typography">
+    <h1>Heading h1</h1>
+    <h2>Heading h2</h2>
+    <h3>Heading h3</h3>
+    <h4>Heading h4</h4>
+</div>
+
+<div>
+    <button mat-button>Botón</button>
+    <button mat-raised-button>Botón raised</button>
+    <button mat-flat-button>Botón flat</button>
+    <button mat-stroked-button>Botón strocked</button>
+</div>
+
+<div>
+    <button mat-icon-button>Botón icon</button>
+    <button mat-fab>Botón fab</button>
+    <button mat-mini-fab>Botón mini fab</button>
+</div>
+
+<div>
+    <button color="primary" mat-button>Primary</button>
+    <button color="accent" mat-button>Accent</button>
+    <button color="warn" disableRipple mat-button>Warn</button>
+    <button color="primary" mat-raised-button>Primary</button>
+    <button color="accent" mat-raised-button>Accent</button>
+    <button color="warn" mat-raised-button>Warn</button>
+</div>
+
+<div>
+    <mat-button-toggle #toggleButton>Toogle</mat-button-toggle>
+    {{toggleButton.checked}}
+</div>
+<div>
+    <mat-button-toggle #toggleButton disableRipple>Toogle</mat-button-toggle>
+    {{toggleButton.checked}}
+</div>
+<div>
+    <mat-button-toggle #toggleButton disableRipple disabled>Toogle</mat-button-toggle>
+    {{toggleButton.checked}}
+</div>
+<div>
+    <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+        <mat-button-toggle value="angular">Angular</mat-button-toggle>
+        <mat-button-toggle value="react">React</mat-button-toggle>
+        <mat-button-toggle value="vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+    {{toggleGroup.value}}
+</div>
+
+<div>
+    <mat-icon>grade</mat-icon>
+    <mat-icon color="primary">grade</mat-icon>
+</div>
+
+<div class="badge">
+    <span matBadge="5">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgePosition="below before">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgePosition="below after">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgePosition="above before">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgeSize="small">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgeSize="medium">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgeSize="large">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgeColor="primary">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgeColor="accent">Notificación</span>
+</div>
+<div class="badge">
+    <span matBadge="5" matBadgeColor="warn" matBadgeOverlap="false">Notificación</span>
+</div>
+<div class="badge">
+    <span [matBadge]="notificaciones" [matBadgeHidden]="notificaciones === 0">Notificación</span>
+</div>
+
+<mat-progress-spinner value="40"></mat-progress-spinner>
+<mat-progress-spinner value="0"></mat-progress-spinner>
+<mat-progress-spinner value="100"></mat-progress-spinner>
+<mat-spinner></mat-spinner>
+<mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+<button (click)="loadData()">Cargar </button>
+
+<mat-toolbar color="primary" class="navbar">
+    <div>Nav Bar</div>
+    <div>
+        <span>Home</span>
+        <span>About</span>
+        <span>Services</span>
+    </div>
+</mat-toolbar>
+
+<!-- mode: over, push, side-->
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Closed')" [(opened)]="opened">Sidenav</mat-sidenav>
+    <mat-sidenav-content>Main
+        <button (click)="opened=!opened">Toggle Opened</button>
+        <button (click)="sidenav.open()">Open</button>
+        <button (click)="sidenav.close()">Close</button>
+        <button (click)="sidenav.toggle()">Toggle</button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+    <button mat-menu-item [matMenuTriggerFor]="subMenu">Front End</button>
+    <button mat-menu-item>Back End</button>
+</mat-menu>
+<button class="center" mat-flat-button [matMenuTriggerFor]="appMenu">Menú</button>
+<mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+</mat-menu>
+<mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name" let-hobby="hobby">
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item>Hobby is {{hobby}}</button>
+        <button mat-menu-item>Log out {{name}}</button>
+    </ng-template>
+</mat-menu>
+<button mat-raised-button [matMenuTriggerData]="{name: 'Vishwas', hobby: 'football'}" 
+    [matMenuTriggerFor]="lazyMenu">Vishwas</button>
+<button mat-raised-button [matMenuTriggerData]="{name: 'Codevolution', hobby: 'teaching'}" 
+    [matMenuTriggerFor]="lazyMenu">Codevolution</button>
+
+<!-- dense baja el tamaño de la letra-->
+<mat-list dense>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Item 3</mat-list-item>
+</mat-list>
+<mat-nav-list>
+    <a mat-list-item href="#">Home</a>
+    <a mat-list-item href="#">About</a>
+    <a mat-list-item href="#">Services</a>
+</mat-nav-list>
+<mat-list>
+    <mat-list-item>
+        <mat-icon matListIcon>home</mat-icon>
+        <h3 matLine>Heading</h3>
+        <p matLine>Line</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Heading 2</h3>
+        <p matLine>Line 2</p>
+    </mat-list-item>
+</mat-list>
+
+<!--colspan y rowspan son atributos de mat-grid-tile-->
+<mat-grid-list cols=2 rowHeight="fit" style="height: 200px;" gutterSize="10px">
+    <mat-grid-tile>Tile 1</mat-grid-tile>
+    <mat-grid-tile>Tile 2</mat-grid-tile>
+    <mat-grid-tile>Tile 3</mat-grid-tile>
+    <mat-grid-tile>Tile 4</mat-grid-tile>
+</mat-grid-list>
+
+<mat-accordion multi="true" hideToggle> 
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Fundamentos de Angular
+            </mat-panel-title>
+            <mat-panel-description>
+                Duración total: 3 horas
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Este es el contenedor del panel. Agregue detalles</p>
+        <mat-action-row>
+            <button mat-button>Enroll</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Angular Material
+            </mat-panel-title>
+            <mat-panel-description>
+                Duración total: 2 horas
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Este es el contenedor del panel. Agregue detalles</p>
+        <mat-action-row>
+            <button mat-button>Enroll</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<mat-card>
+    <mat-card-title>
+        Título del card
+    </mat-card-title>
+    <mat-card-content>
+        Contenido del card
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-flat-button>Login</button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
+    <mat-tab label="Angular">Angular content</mat-tab>
+    <mat-tab label="React">React content</mat-tab>
+    <mat-tab label="Vue">Vue content</mat-tab>
+</mat-tab-group>
+{{tabRef.selectedIndex}}
+
+<!--Si se cambia vertical por horizontal cambia la forma del stepper-->
+<mat-vertical-stepper linear>
+    <mat-step label="Shipping Address" completed="true">
+        <p>Shipping Address details</p>
+    </mat-step>
+    <mat-step label="Billing Address" completed="false" optional>
+        <p>Billing Address details</p>
+        <div>
+            <button mat-button matStepperPrevious>Anterior</button>
+            <button mat-button matStepperNext>Siguiente</button>
+        </div>
+    </mat-step>
+    <mat-step label="Place Order" completed="false">
+        <p>Order details</p>
+    </mat-step>
+</mat-vertical-stepper>
+
+<!--el floatlabel en never hace que el nombre no se suba al escribir en el campo, en always siempre se ve-->
+<!--appearances son legacy (por defecto), standard, fill, outline-->
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Mínimo 5 caracteres</mat-hint>
+</mat-form-field>
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="standard">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Mínimo 5 caracteres</mat-hint>
+</mat-form-field>
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="fill" color="accent">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Mínimo 5 caracteres</mat-hint>
+</mat-form-field>
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="warn">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Mínimo 5 caracteres</mat-hint>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="selectedValue">
+        <mat-option>None</mat-option>
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+    </mat-select>
+</mat-form-field>
+{{selectedValue}}
+<mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select #select [(value)]="selectedValue" multiple>
+        <mat-option>None</mat-option>
+        <mat-optgroup label="Web">
+            <mat-option value="angular">Angular</mat-option>
+            <mat-option value="react">React</mat-option>
+            <mat-option value="vue">Vue</mat-option>
+        </mat-optgroup>
+        <mat-optgroup label="Mobile">
+            <mat-option value="ionic">Ionic</mat-option>
+            <mat-option value="reactnative">Reactnative</mat-option>
+        </mat-optgroup>
+        
+    </mat-select>
+</mat-form-field>
+{{select.value}}
+<mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="select.value" multiple>
+        <mat-option>None</mat-option>
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+        <mat-option value="ionic">Ionic</mat-option>
+        <mat-option value="reactnative">Reactnative</mat-option>        
+    </mat-select>
+</mat-form-field>
+{{selectedValue}}
+
+<form action="">
+    <mat-form-field>
+        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filterOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+
+<mat-checkbox>
+    Subscribe
+</mat-checkbox>
+<br>
+<mat-checkbox labelPosition="before">
+    Subscribe
+</mat-checkbox>
+<mat-checkbox color="primary">
+    Subscribe
+</mat-checkbox>
+<mat-checkbox color="warn">
+    Subscribe
+</mat-checkbox>
+
+<mat-radio-group>
+    <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+    <mat-radio-button value="react">React</mat-radio-button>
+    <mat-radio-button value="vue" color="warn">Vue</mat-radio-button>
+</mat-radio-group>
+
+<!--[min]="minDate" [max]="maxDate en el input, limita la selección de fechas-->
+<mat-form-field>
+    <input type="text" matInput [matDatepicker]="myDatePicker" [matDatepickerFilter]="dateFilter">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+</mat-form-field>
+
+<button mat-raised-button matTooltip="Mensaje de recomendación o algo así" matTooltipPosition="after"
+    matTooltipShowDelay="600" matTooltipHideDelay="600">Hola</button>
+
+<button mat-button (click)="openSnackBar('Ítem eliminado', 'Deshacer')">Eliminar</button>
+
+<button mat-raised-button (click)="openDialog()">Abrir dialogo</button>
+
+<!---->
+<mat-form-field>
+    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
+</mat-form-field>
+<div class="mat-elevation-z8">
+<mat-table mat-table [dataSource]="dataSource" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Weight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row (click)="logDataT(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<cdk-virtual-scroll-viewport itemSize="100" class="container">
+    <div *cdkVirtualFor="let number of numbers" class="number">
+        {{number}}
+    </div>
+</cdk-virtual-scroll-viewport>

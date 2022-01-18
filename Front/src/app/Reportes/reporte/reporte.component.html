@@ -1,0 +1,36 @@
+<div class="all">
+    <!-- Título de la visa -->
+    <div class="mat-title text-center text-col">Reporte de Asignaciones</div>
+    <br>
+    <div class="container sup">
+        <button mat-raised-button color="primary" class="margen" (click)="generarReporte()">Generar reporte en Excel</button>
+        <br>
+        <div class="card sup">
+            <div class="card-body">
+                <!-- Tabla asíncrona qu muestra los clientes asociados a una promoción, según asignación -->
+                <table async class="table table-striped" id="tabla-reporte">
+                    <tr class="text-center">
+                        <th class="align-middle">Promoción</th>
+                        <th class="align-middle">Nombre del Cliente</th>
+                        <th class="align-middle">Ciudad</th>
+                        <th class="align-middle">Actividad Económica</th>
+                        <th class="align-middle">Porcentaje de Descuento</th>
+                        <th class="align-middle">Valor de la Factura</th>
+                        <th class="align-middle">Valor Factura Total (incluyendo descuento)</th>
+                    </tr>
+                    <tbody class="text-center">
+                        <tr *ngFor="let cliente of clientes">
+                            <td class="vertical">{{cliente.nombrePromoDTO}}</td>
+                            <td class="vertical">{{cliente.nombreDTO}}</td>
+                            <td class="vertical">{{cliente.ciudadDTO.nombreDTO}}</td>
+                            <td class="vertical">{{cliente.actividadDTO.nombreDTO}}</td>
+                            <td class="vertical">{{cliente.porcentajeDTO | percent}}</td>
+                            <td class="vertical">{{cliente.valorDTO | currency}}</td>
+                            <td class="vertical">{{cliente.valorRealDTO | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

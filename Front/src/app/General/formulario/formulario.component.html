@@ -1,0 +1,60 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">NOMBRE</label>
+        <input type="text" class="form-control" formControlName="promoNombre" [(ngModel)]="nombre">
+    </div>
+    <div class="form-group">
+        <label for="">FECHA DE INICIO DE VIGENCIA (DD-MM-AAAA)</label>
+        <input type="date" class="form-control" formControlName="promoFechaInicio" [(ngModel)]="fecha_inicio">
+    </div>
+    <div class="form-group">
+        <label for="">FECHAS DE FIN DE VIGENCIA (DD-MM-AAAA)</label>
+        <input type="date" class="form-control" formControlName="promoFechaFin" [(ngModel)]="fecha_fin">
+    </div>
+    <div class="form-group">
+        <label for="">DESCUENTO</label>
+        <input type="number" class="form-control" formControlName="promoDescuento" [(ngModel)]="descuento">
+    </div>
+    <div class="form-group">
+        <label for="">PROMEDIO MÍNIMO REQUERIDO</label>
+        <input type="number" class="form-control" formControlName="promoMinVal" [(ngModel)]="promedio">
+    </div>
+    <div class="form-group">
+        <label for="">CIUDADES</label>
+        <!--<textarea cols="1" rows="2">
+            <input type="checkbox" *ngFor="let ciudad of ciudades">{{ciudad.nombreDTO}}<br>
+        </textarea>-->
+        <select multiple="multiple" formControlName="promoCiudades" [(ngModel)]="ciudadesSeleccionadas">
+            <option selected disabled hidden>Seleccione una opción</option>
+            <option *ngFor="let ciudad of ciudades">{{ciudad.nombreDTO}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">ACTIVIDADES ECONÓMICAS</label>
+        <select multiple="multiple" formControlName="promoActividades" [(ngModel)]="actividadesSeleccionadas">
+            <option selected disabled hidden>Seleccione una opción</option>
+            <option *ngFor="let act of actividades">{{act.nombreDTO}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">PLANES COMERCIALES</label>
+        <select multiple="multiple" formControlName="promoPlanes" [(ngModel)]="planesSeleccionados">
+            <option selected disabled hidden>Seleccione una opción</option>
+            <option *ngFor="let plan of planes">{{plan.nombreDTO}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">CALIFICACIONES</label>
+        <select multiple="multiple" formControlName="promoCalificaciones" [(ngModel)]="calificacionesSeleccionadas">
+            <option selected disabled hidden>Seleccione una opción</option>
+            <option *ngFor="let cal of calificaciones">{{cal.nombreDTO}}</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-info"> Crear Promoción </button>
+    </div>
+</form>
+<div>
+    {{form.value | json}}
+    {{promocion | json}}
+</div>

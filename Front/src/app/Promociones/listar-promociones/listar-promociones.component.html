@@ -1,0 +1,49 @@
+<div class="all">
+    <div class="container">
+        <div class="card">
+            <div class="mat-title text-center text-col">Listado de Promociones</div>
+            <div class="card-body">
+                <!-- Tabla asíncrona para listar promociones -->
+                <table async class="table table-striped">
+                    <thead class="text-center">
+                        <th class="align-middle">ID</th>
+                        <th class="align-middle">Nombre</th>
+                        <th class="align-middle">Fecha de Inicio</th>
+                        <th class="align-middle">Fecha de Fin</th>
+                        <th class="align-middle">Descuento</th>
+                        <th class="align-middle">Promedio Mínimo Requerido</th>
+                        <th class="align-middle">Ciudades</th>
+                        <th class="align-middle">Planes Comerciales</th>
+                        <th class="align-middle">Actividades Económicas</th>
+                        <th class="align-middle">Calificaciones</th>
+                        <th class="align-middle"></th>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr *ngFor="let promo of promos | paginate: {itemsPerPage: 10, currentPage: page}">
+                            <td class="vertical align-middle">{{promo.idDTO}}</td>
+                            <td class="vertical align-middle">{{promo.nombreDTO}}</td>
+                            <td class="vertical align-middle">{{promo.fecha_inicioDTO | date: 'dd/MM/yyyy'}}</td>
+                            <td class="vertical align-middle">{{promo.fecha_finDTO | date: 'dd/MM/yyyy'}}</td>
+                            <td class="vertical align-middle">{{promo.descuentoDTO | percent: '1.0-2'}}</td>
+                            <td class="vertical align-middle">{{promo.min_valDTO | currency: 'COP':'symbol-narrow':'1.0-2'}}</td>
+                            <td class="vertical align-middle"><tr id="ele" *ngFor="let ciudad of promo.ciudadDTO">{{ciudad.nombreDTO}}</tr></td>
+                            <td class="vertical align-middle"><tr id="ele" *ngFor="let plan of promo.planDTO">{{plan.nombreDTO}}</tr></td>
+                            <td class="vertical align-middle"><tr id="ele" *ngFor="let act of promo.actividadDTO">{{act.nombreDTO}}</tr></td>
+                            <td class="vertical align-middle"><tr id="ele" *ngFor="let cal of promo.calificacionDTO">{{cal.nombreDTO}}</tr></td>
+                            <td class="vertical align-middle">
+                                <button class="btn btn-warning separacion" (click)="actualizarPromocion(promo)">Editar</button>
+                                <button class="btn btn-danger separacion" (click)="abrirDialogo(promo)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="margen">
+        <pagination-controls (pageChange)="page= $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+    <div class="centro">
+        <button mat-raised-button color="primary" (click)="crearPromocion()">Agregar Promoción</button>
+    </div>
+</div>

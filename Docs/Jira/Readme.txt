@@ -1,0 +1,1 @@
+Se debe incluir el seguimeinto en Jira, por medio de pantallazos de la aplicación.

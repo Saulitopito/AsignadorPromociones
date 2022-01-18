@@ -1,0 +1,48 @@
+.text-col{
+    color: #434750;
+    margin-bottom: 2%;
+}
+
+.vertical{
+    vertical-align: middle;
+}
+
+.center{
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.vertical{
+    vertical-align: middle;
+}
+
+.block{
+    display: block;
+}
+
+.promo{
+    width: 50%;
+}
+
+.left{
+    margin-left: 2%;
+}
+
+.right{
+    margin-right: 7%;
+    float: right;
+}
+
+.margen-izq{
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+
+.margen{
+    margin: 2%;
+}
+
+.all{
+    min-height: 76vh;
+}

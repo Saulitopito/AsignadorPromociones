@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">NOMBRE</label>
+        <input type="text" class="form-control" formControlName="clienteNombre" [(ngModel)]="cliente.nombreDTO">
+    </div>
+    <div class="form-group">
+        <label for="">DIRECCIÓN</label>
+        <input type="text" class="form-control" formControlName="clienteDireccion" [(ngModel)]="cliente.direccionDTO">
+    </div>
+    <div class="form-group">
+        <label for="">TELEFONO</label>
+        <input type="text" class="form-control" formControlName="clienteTelefono" [(ngModel)]="cliente.telefonoDTO">
+    </div>
+    <div class="form-group">
+        <label for="">CIUDAD</label>
+        <select formControlName="clienteCiudad" [(ngModel)]="cliente.ciudadDTO">
+            <option *ngFor="let ciudad of ciudades">{{ciudad.nombreDTO}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">ACTIVIDAD ECONÓMICA</label>
+        <select formControlName="clienteActividad" [(ngModel)]="cliente.actividadDTO">
+            <option *ngFor="let act of actividades">{{act.nombreDTO}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">PLAN COMERCIAL</label>
+        <select formControlName="clientePlan" [(ngModel)]="cliente.planDTO">
+            <option *ngFor="let plan of planes">{{plan.nombreDTO}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">CALIFIFCACION</label>
+        <select formControlName="clienteCalificacion" [(ngModel)]="cliente.calificacionDTO">
+            <option *ngFor="let cal of calificaciones">{{cal.nombreDTO}}</option>
+        </select>
+    </div>
+</form>

@@ -1,0 +1,22 @@
+.navbar{
+    justify-content: space-between;
+}
+span{
+    padding-right: 3em;
+}
+.size{
+    font-size: 0.8em;
+}
+a{
+    color:#FFFFFF;
+}
+a:visited{
+    color:#FFFFFF;
+}
+a:hover{
+    color:#FFFFFF;
+    text-decoration: none;
+}
+a:active{
+    color:#FFFFFF;
+}
